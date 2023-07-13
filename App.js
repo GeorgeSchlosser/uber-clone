@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
 import * as Location from 'expo-location';
-
+import { Button } from 'react-native';
 export default function App() {
  const [position, setPosition] = useState({
     latitude: 0,
@@ -55,6 +55,9 @@ return (
             tracksViewChanges={true}>
           </Marker>
       </MapView>
+      <View style={styles.pickupButton}>
+        <Button title="Request pickup"/>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -70,5 +73,11 @@ const styles = StyleSheet.create({
   map: {
     width: '100%',
     height: '100%',
+  },
+  pickupButton:{
+    position: 'absolute',
+    top: '90%', 
+    alignSelf: 'center', 
+    width: '80%'
   },
 });
